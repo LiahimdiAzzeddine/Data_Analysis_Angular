@@ -1,0 +1,58 @@
+<div clss="container py-5" style="margin:5px;padding:5px">
+    <div class="rounded shadow p-2 d-flex">
+    <img src="/assets/modele.svg" alt="" width="250">
+      <div>
+        <h3 class="text-primary">Création du modèle K-Means</h3>
+        <h5 class="text-secondary">
+          Avec cette application vous pouvez consulter, créer un modèle K-Means
+        </h5>
+        <hr>
+        <p class="text-muted">
+          Cette application a été programmée avec Spring boot, Angular et MongoDB
+        </p>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h3>Information sur le modèle créé</h3>
+        <!-- *ngFor="let utilisateur of utilisateurs" -->
+        <div  class="card mb-1">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+            <div class="fw-bold">{{modeles[0]}} <br>{{modeles[1]}} <br>{{modeles[2]}} <br>{{modeles[3]}} <br>{{modeles[4]}} <br>{{modeles[5]}} <br>{{modeles[6]}}</div>  
+          </div>
+      
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>Modèle K-Means</h3>
+        <form class="mt-3" (ngSubmit)="createKmean()">
+          <div class="mb-2 form-floating">
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    MubawabMa
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Link 1</a></li>
+                  <li><a class="dropdown-item" href="#">Link 2</a></li>
+                  <li><a class="dropdown-item" href="#">Link 3</a></li>
+                </ul>
+              </div>
+          </div>
+          <div class="mb-2 form-floating">
+            <input id="nom" type="text" placeholder="modele" name="nom" class="form-control" [(ngModel)]="modele.nom" >
+            <label for="nom">Nom de modele</label>
+          </div>      
+        <div class="mb-2 form-floating">
+          <input id="K" type="number" placeholder="K" name="K" class="form-control" [(ngModel)]="modele.K">
+          <label for="email">Nombre des clusters</label>
+        </div>
+          <div class="text-end"> 
+      <button class="btn btn-primary btn-lg">Créer</button>
+          </div>
+        </form>
+      </div>
+  
+    </div>  
+  </div>

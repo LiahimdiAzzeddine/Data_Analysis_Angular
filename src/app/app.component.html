@@ -1,0 +1,96 @@
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css'>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3>Angular App Administration</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+          <p>Les Tâche / Pages</p>
+          <li class="active">
+              <a routerLink="/" data-toggle="collapse" aria-expanded="false" >Page d'accueil</a>
+          </li>
+          
+          <li *ngIf="authentifictionService.isLogged()">
+              <a routerLink="gestion_utilisateurs" data-toggle="collapse" aria-expanded="false" >gérer les utilisateurs</a>
+          </li>
+          <li *ngIf="authentifictionService.isLogged()">
+            <a routerLink="scraping" data-toggle="collapse" aria-expanded="false" >Scraping</a>
+        </li>
+        <li *ngIf="authentifictionService.isLogged()">
+            <a routerLink="dataset" data-toggle="collapse" aria-expanded="false" >DataSet</a>
+        </li>
+        <li *ngIf="authentifictionService.isLogged()">
+            <a routerLink="kmeans" data-toggle="collapse" aria-expanded="false" >kmeans</a>
+        </li>
+
+        <li *ngIf="authentifictionService.isLogged()">
+            <a routerLink="devices" data-toggle="collapse" aria-expanded="false" >Dispositifs</a>
+        </li>
+          <li>
+              <a href="/assets/index.html">Portfolio</a>
+          </li>
+          <li>
+              <a routerLink="/">Contact</a>
+          </li>
+      </ul>
+
+      <ul class="list-unstyled CTAs">
+          <li>
+              <a href="" class="download">Telecharger les Données </a>
+          </li>
+          <li>
+              <a href="" class="article">Importer les Données </a>
+          </li>
+      </ul>
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+              <button type="button" id="sidebarCollapse" class="btn btn-info">
+                  <i class="fas fa-align-left"></i>
+                  <span>Toggle Sidebar</span>
+              </button>
+              <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fas fa-align-justify"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="nav navbar-nav ml-auto">
+                      <li *ngIf="!authentifictionService.isLogged()" class="nav-item">
+                        <a  routerLink="login" class="nav-link">login</a>
+                      </li>
+                      
+                      <li *ngIf="authentifictionService.isLogged()" class="nav-item">
+                          <a class="nav-link" (click)="logout()">Logout</a>
+                      </li>
+                      <li class="nav-item" *ngIf="authentifictionService.isLogged()">
+                        <a routerLink="scraping" class="nav-link" >Scraping</a>
+                    </li>
+                    <li class="nav-item" *ngIf="authentifictionService.isLogged()">
+                        <a routerLink="dataset" class="nav-link" >DataSet</a>
+                    </li>
+                    <li class="nav-item" *ngIf="authentifictionService.isLogged()">
+                        <a routerLink="devices" class="nav-link" >Dispositifs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="homepage" class="nav-link" >Page d'accueil</a>
+                    </li>
+                    <li class="nav-item" *ngIf="authentifictionService.isLogged()">
+                        <a routerLink="kmeans" class="nav-link" >kmeans</a>
+                    </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+     <router-outlet>
+     </router-outlet>
+  </div>
+</div>
+<footer></footer>
+
